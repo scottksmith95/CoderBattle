@@ -16,6 +16,9 @@ namespace CoderBattle
     {
         protected void Application_Start()
         {
+            //SignalR hub registration
+            RouteTable.Routes.MapHubs();
+
             AreaRegistration.RegisterAllAreas();
 
             WebApiConfig.Register(GlobalConfiguration.Configuration);

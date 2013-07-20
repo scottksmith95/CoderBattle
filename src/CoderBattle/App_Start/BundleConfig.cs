@@ -11,7 +11,9 @@ namespace CoderBattle
             bundles.Add(new ScriptBundle("~/Scripts/shared")
                 .Include("~/Scripts/jquery-2.0.2.js")
                 .Include("~/Scripts/angular.js")
-                .Include("~/Scripts/bootstrap.js"));
+                .Include("~/Scripts/jquery.signalR-1.1.2.js")
+                .Include("~/Scripts/bootstrap.js")
+                .Include("~/Scripts/coderbattle.js"));
 
             bundles.Add(new StyleBundle("~/Content/css")
                 .Include("~/Content/bootstrap.css")

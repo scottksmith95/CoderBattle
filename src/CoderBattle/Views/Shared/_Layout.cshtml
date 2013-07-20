@@ -22,6 +22,7 @@
     <body>
         @RenderBody()
         @Scripts.Render("~/scripts/shared")
+        <script type="text/javascript" src="~/signalr/hubs"></script>
         @RenderSection("scripts", required: false)
     </body>
 </html>

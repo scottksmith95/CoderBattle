@@ -35,31 +35,28 @@ a:hover {
     text-decoration: none;
 }
 
-.title {
+.fight .title {
     font-size: 100px;
     line-height: 70px;
 }
 
-.subtitle {
+.fight .subtitle {
     font-size: 50px;
     line-height: 40px;
 }
 
-.copyright {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-}
-
-#brawlers {
+.fight .brawlers {
     margin-top: 100px;
     margin-bottom: 100px;
 }
 
-#brawlers h2 {
+.fight .brawlers h2 {
     font-size: 100px;
     padding-top: 100px;
+    padding-bottom: 70px;
 }
 
-#brawlers img {
+.fight .brawlers img {
     -moz-border-radius-topleft: 123px;
     -moz-border-radius-topright: 123px;
     -moz-border-radius-bottomright: 123px;
@@ -71,7 +68,19 @@ a:hover {
     -webkit-box-shadow: 0 0 40px rgba(255,255,255,1), inset 0 0 40px rgba(255,255,255,1);
     -moz-box-shadow: 0 0 40px rgba(255,255,255,1), inset 0 0 40px rgba(255,255,255,1);
     box-shadow: 0 0 40px rgba(255,255,255,1), inset 0 0 40px rgba(255,255,255,1);
+
+    border: 1px dashed #EEE;
 }
+
+.fight footer {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 16px;
+}
+
+.fight .copyright {
+    margin-bottom: 40px;
+}
+
 
 .faded10 {
   -moz-opacity: 0.90;
