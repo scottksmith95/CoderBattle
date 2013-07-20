@@ -10,6 +10,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{ABCFBF
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Battler", "Battler\Battler.csproj", "{3F96B703-5BAB-4961-950D-928EA4A5F43C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -20,6 +22,10 @@ Global
 		{444E8B53-DBBF-4D00-A002-010B047F1F61}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{444E8B53-DBBF-4D00-A002-010B047F1F61}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{444E8B53-DBBF-4D00-A002-010B047F1F61}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F96B703-5BAB-4961-950D-928EA4A5F43C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F96B703-5BAB-4961-950D-928EA4A5F43C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F96B703-5BAB-4961-950D-928EA4A5F43C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F96B703-5BAB-4961-950D-928EA4A5F43C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
