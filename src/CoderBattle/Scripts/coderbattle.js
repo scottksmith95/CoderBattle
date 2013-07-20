@@ -87,16 +87,6 @@ $('.brawler').on({
         var url = 'http://www.gravatar.com/avatar/' + hash + '?d=mm&s=1024';
 
         $b.html('<a target=_blank href="' + link + '"><img src="' + url + '" width="256" height="256" class="animated"></a><h3>' + name + '</h3>');
-
-        //$b.html('<a target=_blank href="' + link + '"><img src="' + url + '" width="256" height="256"></a><h3>' + name + ' <a href="#" class="username-edit"><i class="icon-edit"></i></a></h3>');
-        //$('.username-edit').on('click', function () {
-        //    var el = $(this);
-        //    var brawler = $(el).closest('.brawler');
-            
-        //    $b.html('<div class="username"><input id="fighter1" class="init" placeholder="Brawler\'s username"/></div>');
-
-        //    return false;
-        //});
     },
     b_setProfile: function (e, profile) {
         $b = $(this);
