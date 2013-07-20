@@ -71,6 +71,7 @@ a:hover {
     font-size: 23px;
     height: 40px;
     padding: 10px;
+    border-radius: 6px;
 }
 
 .fight .brawlers i {
