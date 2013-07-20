@@ -146,17 +146,24 @@ a:hover {
   opacity: 0.10;
 }
 
-.winner {
-}
-
 #results-wrapper {
+    background-color: rgba(50, 50, 50, .5);
     padding: 0 0 50px 0;
     margin-bottom: 100px;
-    border-radius: 10px;
+}
+
+#results-wrapper .results-header {
+    background-color: rgba(10, 10, 10, .5);
+    padding: 25px 0;
+}
+
+#results-wrapper h2 {
+    text-align: center;
 }
 
 #results-wrapper h3:first-child {
     text-align: center;
+    padding-top: 50px;
     margin-top: 0;
 }
 
