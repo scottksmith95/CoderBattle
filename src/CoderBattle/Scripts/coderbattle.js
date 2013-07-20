@@ -12,6 +12,10 @@ function setPageHash() {
 	var b2 = $('#brawler2').data('username') || '-';
 
 	location.hash = '#' + b1 + '/' + b2;
+
+	if (b1 != '-' && b2 != '-') {
+		$('#fight').prop('disabled', false);
+	}
 }
 
 // brawler init
@@ -76,9 +80,7 @@ $(document).ready(function () {
 	});
 
 	$('#fight').on('click', function () {
-        fightHubProxy.server.start('scott', 'thabo');
-        return false;
-
-
+		fightHubProxy.server.start('scott', 'thabo');
+		return false;
 	});
 });
