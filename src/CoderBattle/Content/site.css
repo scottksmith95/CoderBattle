@@ -1,0 +1,124 @@
+﻿
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+@font-face {
+    font-family: 'Forque';
+    src: url('./font/forque-webfont.eot');
+    src: url('./font/forque-webfont.eot?#iefix') format('embedded-opentype'),
+         url('./font/forque-webfont.woff') format('woff'),
+         url('./font/forque-webfont.ttf') format('truetype'),
+         url('./font/forque-webfont.svg#webfontregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    background-color: #EF3114;
+    background: url(./images/background3.jpg);
+    color: #EEE;
+    font-family: 'Forque', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    text-align: center;
+    -webkit-text-shadow: -2px 2px 3px #444;
+    text-shadow: -2px 2px 3px #444;
+}
+
+a {
+    color: #F4DF8A;
+}
+
+a:hover {
+    color: #FEF589;
+    text-decoration: none;
+}
+
+.title {
+    font-size: 100px;
+    line-height: 70px;
+}
+
+.subtitle {
+    font-size: 50px;
+    line-height: 40px;
+}
+
+.copyright {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+#brawlers {
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+#brawlers h2 {
+    font-size: 100px;
+    padding-top: 100px;
+}
+
+#brawlers img {
+    -moz-border-radius-topleft: 123px;
+    -moz-border-radius-topright: 123px;
+    -moz-border-radius-bottomright: 123px;
+    -moz-border-radius-bottomleft: 123px;
+    -moz-border-radius: 123px;
+    -webkit-border-radius: 123px 123px 123px 123px;
+    border-radius: 123px 123px 123px 123px;
+
+    -webkit-box-shadow: 0 0 40px rgba(255,255,255,1), inset 0 0 40px rgba(255,255,255,1);
+    -moz-box-shadow: 0 0 40px rgba(255,255,255,1), inset 0 0 40px rgba(255,255,255,1);
+    box-shadow: 0 0 40px rgba(255,255,255,1), inset 0 0 40px rgba(255,255,255,1);
+}
+
+.faded10 {
+  -moz-opacity: 0.90;
+  opacity: 0.90;
+}
+
+.faded20 {
+  -moz-opacity: 0.80;
+  opacity: 0.80;
+}
+
+.faded30 {
+  -moz-opacity: 0.70;
+  opacity: 0.70;
+}
+
+.faded40 {
+  -moz-opacity: 0.60;
+  opacity: 0.60;
+}
+
+.faded50 {
+  -moz-opacity: 0.50;
+  opacity: 0.50;
+}
+
+.faded60 {
+  -moz-opacity: 0.40;
+  opacity: 0.40;
+}
+
+.faded70 {
+  -moz-opacity: 0.30;
+  opacity: 0.30;
+}
+
+.faded80 {
+  -moz-opacity: 0.20;
+  opacity: 0.20;
+}
+
+.faded90 {
+  -moz-opacity: 0.10;
+  opacity: 0.10;
+}
+
+.faded100 {
+  -moz-opacity: 0.0;
+  opacity: 0.0;
+}
