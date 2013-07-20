@@ -4,16 +4,15 @@
 
     <div class="row">
         <div class="span12">
-            <h1 class="title">Let the battle begin</h1>
-            <h2 class="subtitle">Battle two <a href="https://coderbits.com" target="_blank">coderbits</a> accounts</h2>
+            <header>
+                <h1 class="title">Let the battle begin</h1>
+                <h2 class="subtitle">Battle two <a href="https://coderbits.com" target="_blank">coderbits</a> accounts</h2>
+            </header>
 
             <div class="row brawlers">
                 <div class="span3 offset2">
                     <div class="brawler" id="brawler1">
-						<label>Enter name <input class="init"/> </label>
-@*                        <a href="https://coderbits.com/scott" target="_blank">
-                            <img src="https://secure.gravatar.com/avatar/4400061d4ff1f220a9b5f060368cd869?s=256" width="256" height="256" />
-                        </a>*@
+                        <div class="username"><input class="init" placeholder="Brawler's username"/></div>
                     </div>
                 </div>
                 <div class="span2">
@@ -21,15 +20,18 @@
                 </div>
                 <div class="span3">
                     <div class="brawler" id="brawler2">
-						<label>Enter name <input class="init"/> </label>
-@*                        <a href="https://coderbits.com/thabo" target="_blank">
-                            <img src="https://secure.gravatar.com/avatar/d83847f9b109aef58bda209d49a888e4?s=256" width="256" height="256" />
-                        </a>*@
+                        <div class="username"><input class="init" placeholder="Brawler's username"/></div>
                     </div>
                 </div>
             </div>
 
-			<ul id="results"></ul>
+            <div class="row">
+                <div class="span8 offset2">
+                    <div id="results-wrapper">
+                        <div id="results"></div>
+                    </div>
+                </div>
+            </div>
 
             <div class="row">
                 <div class="span2 offset5">

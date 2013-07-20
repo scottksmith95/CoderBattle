@@ -16,14 +16,10 @@
 
 body {
     background-color: #EF3114;
-    background: url(./images/background3.jpg) fixed;
+    background: url(./images/background4.jpg) fixed;
     color: #EEE;
-    font-family: 'Forque', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     padding-top: 30px;
     padding-bottom: 30px;
-    text-align: center;
-    -webkit-text-shadow: -2px 2px 3px #444;
-    text-shadow: -2px 2px 3px #444;
 }
 
 a {
@@ -35,12 +31,21 @@ a:hover {
     text-decoration: none;
 }
 
-.fight .title {
+.fight header {
+    font-family: 'Forque', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 100px;
+    line-height: 70px;
+    text-align: center;
+    -webkit-text-shadow: -2px 2px 3px #444;
+    text-shadow: -2px 2px 3px #444;
+}
+
+.fight header h1 {
     font-size: 100px;
     line-height: 70px;
 }
 
-.fight .subtitle {
+.fight header h2 {
     font-size: 50px;
     line-height: 40px;
 }
@@ -48,12 +53,24 @@ a:hover {
 .fight .brawlers {
     margin-top: 100px;
     margin-bottom: 100px;
+    text-align: center;
 }
 
 .fight .brawlers h2 {
+    font-family: 'Forque', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-size: 100px;
     padding-top: 100px;
     padding-bottom: 70px;
+}
+
+.fight .brawlers .username {
+    padding-top: 90px;
+}
+
+.fight .brawlers .username input {
+    font-size: 23px;
+    height: 40px;
+    padding: 10px;
 }
 
 .fight .brawlers img {
@@ -68,19 +85,16 @@ a:hover {
     -webkit-box-shadow: 0 0 40px rgba(255,255,255,1), inset 0 0 40px rgba(255,255,255,1);
     -moz-box-shadow: 0 0 40px rgba(255,255,255,1), inset 0 0 40px rgba(255,255,255,1);
     box-shadow: 0 0 40px rgba(255,255,255,1), inset 0 0 40px rgba(255,255,255,1);
-
-    border: 1px dashed #EEE;
 }
 
 .fight footer {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-size: 16px;
+    margin-top: 100px;
 }
 
 .fight .copyright {
     margin-bottom: 40px;
 }
-
 
 .faded10 {
   -moz-opacity: 0.90;
@@ -132,27 +146,44 @@ a:hover {
   opacity: 0.0;
 }
 
-pre {
-	text-shadow: none;
-	text-align: left;
+#results-wrapper {
+    background-color: rgba(50, 50, 50, .5);
+    padding: 25px 0 50px 0;
+    border-radius: 5px;
+}
 
+#results-wrapper h3 {
+    text-align: center;
+    margin-top: 50px;
+}
+
+pre {
+    -webkit-text-shadow: none;
+    text-shadow: none;
+    text-align: left;
+}
+
+.Message {
+    text-align: center;
 }
 
 .Fighter1Hits {
-	text-align: right;
+    text-align: right;
 }
 
 .Fighter2Hits {
-	text-align: left;
+    text-align: left;
 }
+
 .bit1, .bit0 {
-	display: inline-block;
-	background-color: rgba(0, 127, 127, 0.5);
-	width: 8px;
-	height: 1em;
-	margin-right: 2px;
-	border-radius: 0.3em;
+    display: inline-block;
+    background-color: rgba(0, 127, 127, 0.5);
+    width: 8px;
+    height: 1em;
+    margin-right: 2px;
+    border-radius: 0.3em;
 }
+
 .bit1 {
-	background-color: green;
+    background-color: green;
 }
