@@ -158,12 +158,14 @@ $(document).ready(function () {
 
         if (fighter1Losses + fighter2Losses == 9) {
             if (fighter1Losses < fighter2Losses) {
-                $('#brawler1').addClass('winner-left');
+                $('#brawler1').addClass('winner');
+                $('#brawler1 h3').text($('#brawler1 h3').text() + ' is the Winner!');
                 $('#brawler2 img').addClass('hinge');
                 $('#brawler2 h3').hide();
             }
             else {
-                $('#brawler2').addClass('winner-right');
+                $('#brawler2').addClass('winner');
+                $('#brawler2 h3').text($('#brawler2 h3').text() + ' is the Winner!');
                 $('#brawler1 img').addClass('hinge');
                 $('#brawler1 h3').hide();
             }

@@ -145,37 +145,18 @@ a:hover {
   opacity: 0.10;
 }
 
-.winner-left {
-    -moz-transform: scale(1.5) rotate(0deg) translateX(165px) translateY(0px) skewX(0deg) skewY(0deg);
-    -webkit-transform: scale(1.5) rotate(0deg) translateX(165px) translateY(0px) skewX(0deg) skewY(0deg);
-    -o-transform: scale(1.5) rotate(0deg) translateX(165px) translateY(0px) skewX(0deg) skewY(0deg);
-    -ms-transform: scale(1.5) rotate(0deg) translateX(165px) translateY(0px) skewX(0deg) skewY(0deg);
-    transform: scale(1.5) rotate(0deg) translateX(165px) translateY(0px) skewX(0deg) skewY(0deg);
-}
-
-.winner-left a img {
-    opacity: 1.0;
-    z-index: 100;
-}
-
-.winner-right {
-    -moz-transform: scale(1.5) rotate(0deg) translateX(-165px) translateY(0px) skewX(0deg) skewY(0deg);
-    -webkit-transform: scale(1.5) rotate(0deg) translateX(-165px) translateY(0px) skewX(0deg) skewY(0deg);
-    -o-transform: scale(1.5) rotate(0deg) translateX(-165px) translateY(0px) skewX(0deg) skewY(0deg);
-    -ms-transform: scale(1.5) rotate(0deg) translateX(-165px) translateY(0px) skewX(0deg) skewY(0deg);
-    transform: scale(1.5) rotate(0deg) translateX(-165px) translateY(0px) skewX(0deg) skewY(0deg);
-}
-
-.winner-right a img {
-    opacity: 1.0;
-    z-index: 100;
+.winner {
 }
 
 #results-wrapper {
-    background-color: rgba(50, 50, 50, .5);
-    padding: 25px 0 50px 0;
+    padding: 0 0 50px 0;
     margin-bottom: 100px;
     border-radius: 10px;
+}
+
+#results-wrapper h3:first-child {
+    text-align: center;
+    margin-top: 0;
 }
 
 #results-wrapper h3 {
@@ -203,7 +184,7 @@ pre {
 
 .bit1, .bit0 {
     display: inline-block;
-    background-color: rgba(244, 223, 138, .5);
+    background-color: rgba(0, 255, 0, .4);
     width: 10px;
     height: 10px;
     margin-right: 2px;
@@ -211,5 +192,5 @@ pre {
 }
 
 .bit1 {
-    background-color: #F4DF8A;
+    background-color: #00FF00;
 }
