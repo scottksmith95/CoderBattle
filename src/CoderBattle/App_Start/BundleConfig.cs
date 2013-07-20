@@ -13,6 +13,7 @@ namespace CoderBattle
                 .Include("~/Scripts/angular.js")
                 .Include("~/Scripts/jquery.signalR-1.1.2.js")
                 .Include("~/Scripts/bootstrap.js")
+                .Include("~/Scripts/underscore.js")
                 .Include("~/Scripts/coderbattle.js"));
 
             bundles.Add(new StyleBundle("~/Content/css")
