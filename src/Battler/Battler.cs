@@ -25,109 +25,128 @@ namespace Battler
             Fighter2 = fighterModel2Task.Result;
         }
 
-        public async Task<BoutResult> FightLanguages()
+        public async Task<BoutResult> FightPersonal()
         {
             await Task.Delay(1000);
 
-            var result = new BoutResult() { Category = "Languages" };
+            var result = new BoutResult() { Category = "Personal" };
 
-            result.Results.AddRange(FightSkills(Fighter1.top_languages, Fighter2.top_languages, true));
-            result.Results.AddRange(FightSkills(Fighter2.top_languages, Fighter1.top_languages, false));
+            result.Results.Add(FightString("Headline", Fighter1.title, Fighter2.title));
+            result.Results.Add(FightString("Location", Fighter1.location, Fighter2.location));
+            result.Results.Add(FightString("Website", Fighter1.website_link, Fighter2.website_link));
+            result.Results.Add(FightString("Bio", Fighter1.bio, Fighter2.bio));
 
             return result;
+        }
+
+        public async Task<BoutResult> FightLanguages()
+        {
+            return await FightApiModelStat("Languages", Fighter1.top_languages, Fighter2.top_languages);
         }
 
         public async Task<BoutResult> FightEnvironments()
         {
-            await Task.Delay(1000);
-
-            var result = new BoutResult() { Category = "Environments" };
-
-            result.Results.AddRange(FightSkills(Fighter1.top_environments, Fighter2.top_environments, true));
-            result.Results.AddRange(FightSkills(Fighter2.top_environments, Fighter1.top_environments, false));
-
-            return result;
+            return await FightApiModelStat("Environments", Fighter1.top_environments, Fighter2.top_environments);
         }
 
         public async Task<BoutResult> FightFrameworks()
         {
-            await Task.Delay(1000);
-
-            var result = new BoutResult() { Category = "Frameworks" };
-
-            result.Results.AddRange(FightSkills(Fighter1.top_frameworks, Fighter2.top_frameworks, true));
-            result.Results.AddRange(FightSkills(Fighter2.top_frameworks, Fighter1.top_frameworks, false));
-
-            return result;
+            return await FightApiModelStat("Frameworks", Fighter1.top_frameworks, Fighter2.top_frameworks);
         }
 
         public async Task<BoutResult> FightTools()
         {
-            await Task.Delay(1000);
-
-            var result = new BoutResult() { Category = "Tools" };
-
-            result.Results.AddRange(FightSkills(Fighter1.top_tools, Fighter2.top_tools, true));
-            result.Results.AddRange(FightSkills(Fighter2.top_tools, Fighter1.top_tools, false));
-
-            return result;
+            return await FightApiModelStat("Tools", Fighter1.top_tools, Fighter2.top_tools);
         }
 
         public async Task<BoutResult> FightInterests()
         {
-            await Task.Delay(1000);
-
-            var result = new BoutResult() { Category = "Interests" };
-
-            result.Results.AddRange(FightSkills(Fighter1.top_interests, Fighter2.top_interests, true));
-            result.Results.AddRange(FightSkills(Fighter2.top_interests, Fighter1.top_interests, false));
-
-            return result;
+            return await FightApiModelStat("Interests", Fighter1.top_interests, Fighter2.top_interests);
         }
 
         public async Task<BoutResult> FightTraits()
         {
-            await Task.Delay(1000);
-
-            var result = new BoutResult() { Category = "Traits" };
-
-            result.Results.AddRange(FightSkills(Fighter1.top_traits, Fighter2.top_traits, true));
-            result.Results.AddRange(FightSkills(Fighter2.top_traits, Fighter1.top_traits, false));
-
-            return result;
+            return await FightApiModelStat("Traits", Fighter1.top_traits, Fighter2.top_traits);
         }
 
         public async Task<BoutResult> FightAreas()
         {
+            return await FightApiModelStat("Areas", Fighter1.top_areas, Fighter2.top_areas);
+        }
+
+        public async Task<BoutResult> FightGeneralCounts()
+        {
             await Task.Delay(1000);
 
-            var result = new BoutResult() { Category = "Areas" };
+            var result = new BoutResult() { Category = "General Counts" };
 
-            result.Results.AddRange(FightSkills(Fighter1.top_areas, Fighter2.top_areas, true));
-            result.Results.AddRange(FightSkills(Fighter2.top_areas, Fighter1.top_areas, false));
+            result.Results.Add(FightInt("Views", Fighter1.views, Fighter2.views));
+            result.Results.Add(FightInt("Followers", Fighter1.follower_count, Fighter2.follower_count));
+            result.Results.Add(FightInt("Following", Fighter1.following_count, Fighter2.following_count));
+            result.Results.Add(FightInt("1 bit badges", Fighter1.one_bit_badges, Fighter2.one_bit_badges));
+            result.Results.Add(FightInt("8 bit badges", Fighter1.eight_bit_badges, Fighter2.eight_bit_badges));
+            result.Results.Add(FightInt("16 bit badges", Fighter1.sixteen_bit_badges, Fighter2.sixteen_bit_badges));
+            result.Results.Add(FightInt("32 bit badges", Fighter1.thirty_two_bit_badges, Fighter2.thirty_two_bit_badges));
+            result.Results.Add(FightInt("64 bit badges", Fighter1.sixty_four_bit_badges, Fighter2.sixty_four_bit_badges));
 
             return result;
         }
 
-        private List<BoutResult.BoutMiniResult> FightSkills(List<ApiModel.Stat> FirstFighterSkills, List<ApiModel.Stat> SecondFighterSkills, bool Fighter1First)
+        private BoutResult.BoutMiniResult FightString(string value, string firstValue, string secondValue)
+        {
+            if (!string.IsNullOrEmpty(firstValue) && string.IsNullOrEmpty(secondValue))
+                return new BoutResult.BoutMiniResult() { Message = value, Fighter1Hits = 1, Fighter2Hits = 0 };
+            else if (string.IsNullOrEmpty(firstValue) && !string.IsNullOrEmpty(secondValue))
+                return new BoutResult.BoutMiniResult() { Message = value, Fighter1Hits = 0, Fighter2Hits = 1 };
+            else
+                return new BoutResult.BoutMiniResult() { Message = value, Fighter1Hits = 0, Fighter2Hits = 0 };
+        }
+
+        private BoutResult.BoutMiniResult FightInt(string value, int firstValue, int secondValue)
+        {
+            if (firstValue > secondValue)
+                return new BoutResult.BoutMiniResult() { Message = value, Fighter1Hits = firstValue - secondValue, Fighter2Hits = 0 };
+            else if (secondValue > firstValue)
+                return new BoutResult.BoutMiniResult() { Message = value, Fighter1Hits = 0, Fighter2Hits = secondValue - firstValue };
+            else
+                return new BoutResult.BoutMiniResult() { Message = value, Fighter1Hits = 0, Fighter2Hits = 0 };
+        }
+
+        private async Task<BoutResult> FightApiModelStat(string category, List<ApiModel.Stat> firstStats, List<ApiModel.Stat> secondStats)
+        {
+            await Task.Delay(1000);
+
+            var result = new BoutResult() { Category = category };
+
+            result.Results.AddRange(FightSkills(firstStats, secondStats, true));
+            result.Results.AddRange(FightSkills(secondStats, firstStats, false));
+
+            return result;
+        }
+
+        private List<BoutResult.BoutMiniResult> FightSkills(List<ApiModel.Stat> firstFighterSkills, List<ApiModel.Stat> secondFighterSkills, bool fighter1First)
         {
             var result = new List<BoutResult.BoutMiniResult>();
 
             //Intentionally inefficient to slow down the fight
-            foreach (var item1 in FirstFighterSkills)
+            foreach (var item1 in firstFighterSkills)
             {
                 var found = false;
 
-                foreach (var item2 in SecondFighterSkills)
+                foreach (var item2 in secondFighterSkills)
                 {
                     if (item1.name.Equals(item2.name))
                     {
                         if (item1.count > item2.count)
                         {
-                            if (Fighter1First)
+                            if (fighter1First)
                                 result.Add(new BoutResult.BoutMiniResult() { Message = item1.name, Fighter1Hits = item1.count - item2.count, Fighter2Hits = 0 });
                             else
                                 result.Add(new BoutResult.BoutMiniResult() { Message = item1.name, Fighter1Hits = 0, Fighter2Hits = item1.count - item2.count });
+                        }
+                        else if (item1.count == item2.count)
+                        {
+                            result.Add(new BoutResult.BoutMiniResult() { Message = item1.name, Fighter1Hits = 0, Fighter2Hits = 0 });
                         }
 
                         found = true;
@@ -137,7 +156,7 @@ namespace Battler
 
                 if (!found)
                 {
-                    if (Fighter1First)
+                    if (fighter1First)
                         result.Add(new BoutResult.BoutMiniResult() { Message = item1.name, Fighter1Hits = item1.count, Fighter2Hits = 0 });
                     else
                         result.Add(new BoutResult.BoutMiniResult() { Message = item1.name, Fighter1Hits = 0, Fighter2Hits = item1.count });

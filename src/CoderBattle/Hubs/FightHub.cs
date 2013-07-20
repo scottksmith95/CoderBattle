@@ -16,7 +16,13 @@ namespace CoderBattle.Hubs
 
             await battle.Init(fighter1, fighter2);
 
-            var boutResult = await battle.FightLanguages();
+            var boutResult = await battle.FightPersonal();
+            Clients.Caller.boutComplete(boutResult);
+
+            boutResult = await battle.FightGeneralCounts();
+            Clients.Caller.boutComplete(boutResult);
+
+            boutResult = await battle.FightLanguages();
             Clients.Caller.boutComplete(boutResult);
 
             boutResult = await battle.FightEnvironments();
