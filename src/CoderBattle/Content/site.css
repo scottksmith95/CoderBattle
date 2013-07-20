@@ -184,10 +184,12 @@ pre {
 
 .Fighter1Hits {
     text-align: right;
+    cursor: pointer;
 }
 
 .Fighter2Hits {
     text-align: left;
+    cursor: pointer;
 }
 
 .bit1, .bit0 {

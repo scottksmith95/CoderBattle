@@ -42,9 +42,9 @@ function showBout($header, items) {
             $cell,
             $row = $(
                 '<div class="row">' +
-                    '<div class="Fighter1Hits span3" title="Dec: ' + item.Fighter1Hits + ' Hex: ' + item.Fighter1Hits.toString(16) + ' Bin: ' + item.Fighter1Hits.toString(2) + '"></div>' +
+                    '<div class="Fighter1Hits span3" data-rel-right="tooltip" title="Dec: ' + item.Fighter1Hits + ' Hex: ' + item.Fighter1Hits.toString(16) + ' Bin: ' + item.Fighter1Hits.toString(2) + '"></div>' +
                     '<div class="Message span2"></div>' +
-                    '<div class="Fighter2Hits span3" title="Dec: ' + item.Fighter2Hits + ' Hex: ' + item.Fighter2Hits.toString(16) + ' Bin: ' + item.Fighter2Hits.toString(2) + '"></div>' +
+                    '<div class="Fighter2Hits span3" data-rel-left="tooltip" title="Dec: ' + item.Fighter2Hits + ' Hex: ' + item.Fighter2Hits.toString(16) + ' Bin: ' + item.Fighter2Hits.toString(2) + '"></div>' +
                 '</div>');
 
         $holder.before($row);
@@ -61,8 +61,10 @@ function showBout($header, items) {
             } else {
                 $cell.html(getBits(value, className == 'Fighter2Hits'));
             }
-        }
-         
+        };
+
+        $('[data-rel-left=tooltip]').tooltip({ 'placement': 'left', 'delay': { 'show': '200', 'hide': '50' } });
+        $('[data-rel-right=tooltip]').tooltip({ 'placement': 'right', 'delay': { 'show': '200', 'hide': '50' } });
     });
 }
 
