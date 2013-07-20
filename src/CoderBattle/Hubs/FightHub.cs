@@ -8,9 +8,9 @@ namespace CoderBattle.Hubs
 {
     public class FightHub : Hub
     {
-        public void Hello()
+        public void Start()
         {
-            Clients.All.hello();
+            Clients.Caller.win();
         }
     }
 }
