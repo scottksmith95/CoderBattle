@@ -73,6 +73,10 @@ a:hover {
     padding: 10px;
 }
 
+.fight .brawlers i {
+    margin-left: 10px;
+}
+
 .fight .brawlers img {
     -moz-border-radius-topleft: 123px;
     -moz-border-radius-topright: 123px;
@@ -96,60 +100,82 @@ a:hover {
     margin-bottom: 40px;
 }
 
-.faded10 {
+.faded1 {
   -moz-opacity: 0.90;
   opacity: 0.90;
 }
 
-.faded20 {
+.faded2 {
   -moz-opacity: 0.80;
   opacity: 0.80;
 }
 
-.faded30 {
+.faded3 {
   -moz-opacity: 0.70;
   opacity: 0.70;
 }
 
-.faded40 {
+.faded4 {
   -moz-opacity: 0.60;
   opacity: 0.60;
 }
 
-.faded50 {
+.faded5 {
   -moz-opacity: 0.50;
   opacity: 0.50;
 }
 
-.faded60 {
+.faded6 {
   -moz-opacity: 0.40;
   opacity: 0.40;
 }
 
-.faded70 {
+.faded7 {
   -moz-opacity: 0.30;
   opacity: 0.30;
 }
 
-.faded80 {
+.faded8 {
   -moz-opacity: 0.20;
   opacity: 0.20;
 }
 
-.faded90 {
+.faded9 {
   -moz-opacity: 0.10;
   opacity: 0.10;
 }
 
-.faded100 {
-  -moz-opacity: 0.0;
-  opacity: 0.0;
+.winner-left {
+    -moz-transform: scale(1.5) rotate(0deg) translateX(165px) translateY(0px) skewX(0deg) skewY(0deg);
+    -webkit-transform: scale(1.5) rotate(0deg) translateX(165px) translateY(0px) skewX(0deg) skewY(0deg);
+    -o-transform: scale(1.5) rotate(0deg) translateX(165px) translateY(0px) skewX(0deg) skewY(0deg);
+    -ms-transform: scale(1.5) rotate(0deg) translateX(165px) translateY(0px) skewX(0deg) skewY(0deg);
+    transform: scale(1.5) rotate(0deg) translateX(165px) translateY(0px) skewX(0deg) skewY(0deg);
+}
+
+.winner-left a img {
+    opacity: 1.0;
+    z-index: 100;
+}
+
+.winner-right {
+    -moz-transform: scale(1.5) rotate(0deg) translateX(-165px) translateY(0px) skewX(0deg) skewY(0deg);
+    -webkit-transform: scale(1.5) rotate(0deg) translateX(-165px) translateY(0px) skewX(0deg) skewY(0deg);
+    -o-transform: scale(1.5) rotate(0deg) translateX(-165px) translateY(0px) skewX(0deg) skewY(0deg);
+    -ms-transform: scale(1.5) rotate(0deg) translateX(-165px) translateY(0px) skewX(0deg) skewY(0deg);
+    transform: scale(1.5) rotate(0deg) translateX(-165px) translateY(0px) skewX(0deg) skewY(0deg);
+}
+
+.winner-right a img {
+    opacity: 1.0;
+    z-index: 100;
 }
 
 #results-wrapper {
     background-color: rgba(50, 50, 50, .5);
     padding: 25px 0 50px 0;
-    border-radius: 5px;
+    margin-bottom: 100px;
+    border-radius: 10px;
 }
 
 #results-wrapper h3 {
@@ -177,13 +203,13 @@ pre {
 
 .bit1, .bit0 {
     display: inline-block;
-    background-color: rgba(0, 127, 127, 0.5);
-    width: 8px;
-    height: 1em;
+    background-color: rgba(244, 223, 138, .5);
+    width: 10px;
+    height: 10px;
     margin-right: 2px;
     border-radius: 0.3em;
 }
 
 .bit1 {
-    background-color: green;
+    background-color: #F4DF8A;
 }

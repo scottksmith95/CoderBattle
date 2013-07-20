@@ -9,6 +9,8 @@ namespace Battler
 {
     public class Battle
     {
+        private const int DELAY = 1500;
+
         private ApiModel Fighter1;
         private ApiModel Fighter2;
 
@@ -27,7 +29,7 @@ namespace Battler
 
         public async Task<BoutResult> FightPersonal()
         {
-            await Task.Delay(1000);
+            await Task.Delay(DELAY);
 
             var result = new BoutResult() { Category = "Personal" };
 
@@ -35,6 +37,8 @@ namespace Battler
             result.Results.Add(FightString("Location", Fighter1.location, Fighter2.location));
             result.Results.Add(FightString("Website", Fighter1.website_link, Fighter2.website_link));
             result.Results.Add(FightString("Bio", Fighter1.bio, Fighter2.bio));
+
+            result = CalculateWinner(result);
 
             return result;
         }
@@ -76,9 +80,9 @@ namespace Battler
 
         public async Task<BoutResult> FightGeneralCounts()
         {
-            await Task.Delay(1000);
+            await Task.Delay(DELAY);
 
-            var result = new BoutResult() { Category = "General Counts" };
+            var result = new BoutResult() { Category = "Statistics" };
 
             result.Results.Add(FightInt("Views", Fighter1.views, Fighter2.views));
             result.Results.Add(FightInt("Followers", Fighter1.follower_count, Fighter2.follower_count));
@@ -89,37 +93,55 @@ namespace Battler
             result.Results.Add(FightInt("32 bit badges", Fighter1.thirty_two_bit_badges, Fighter2.thirty_two_bit_badges));
             result.Results.Add(FightInt("64 bit badges", Fighter1.sixty_four_bit_badges, Fighter2.sixty_four_bit_badges));
 
+            result = CalculateWinner(result);
+
             return result;
         }
 
         private BoutResult.BoutMiniResult FightString(string value, string firstValue, string secondValue)
         {
-            if (!string.IsNullOrEmpty(firstValue) && string.IsNullOrEmpty(secondValue))
-                return new BoutResult.BoutMiniResult() { Message = value, Fighter1Hits = 1, Fighter2Hits = 0 };
-            else if (string.IsNullOrEmpty(firstValue) && !string.IsNullOrEmpty(secondValue))
-                return new BoutResult.BoutMiniResult() { Message = value, Fighter1Hits = 0, Fighter2Hits = 1 };
-            else
-                return new BoutResult.BoutMiniResult() { Message = value, Fighter1Hits = 0, Fighter2Hits = 0 };
+            //TODO - CHANGE?
+            var result = new BoutResult.BoutMiniResult()
+            {
+                Message = value
+            };
+            if (!string.IsNullOrEmpty(firstValue))
+                result.Fighter1Hits = 1;
+            if (!string.IsNullOrEmpty(secondValue))
+                result.Fighter2Hits = 1;
+            return result;
+
+            //if (!string.IsNullOrEmpty(firstValue) && string.IsNullOrEmpty(secondValue))
+            //    return new BoutResult.BoutMiniResult() { Message = value, Fighter1Hits = 1, Fighter2Hits = 0 };
+            //else if (string.IsNullOrEmpty(firstValue) && !string.IsNullOrEmpty(secondValue))
+            //    return new BoutResult.BoutMiniResult() { Message = value, Fighter1Hits = 0, Fighter2Hits = 1 };
+            //else
+            //    return new BoutResult.BoutMiniResult() { Message = value, Fighter1Hits = 0, Fighter2Hits = 0 };
         }
 
         private BoutResult.BoutMiniResult FightInt(string value, int firstValue, int secondValue)
         {
-            if (firstValue > secondValue)
-                return new BoutResult.BoutMiniResult() { Message = value, Fighter1Hits = firstValue - secondValue, Fighter2Hits = 0 };
-            else if (secondValue > firstValue)
-                return new BoutResult.BoutMiniResult() { Message = value, Fighter1Hits = 0, Fighter2Hits = secondValue - firstValue };
-            else
-                return new BoutResult.BoutMiniResult() { Message = value, Fighter1Hits = 0, Fighter2Hits = 0 };
+            //TODO - CHANGE?
+            return new BoutResult.BoutMiniResult() { Message = value, Fighter1Hits = firstValue, Fighter2Hits = secondValue };
+
+            //if (firstValue > secondValue)
+            //    return new BoutResult.BoutMiniResult() { Message = value, Fighter1Hits = firstValue - secondValue, Fighter2Hits = 0 };
+            //else if (secondValue > firstValue)
+            //    return new BoutResult.BoutMiniResult() { Message = value, Fighter1Hits = 0, Fighter2Hits = secondValue - firstValue };
+            //else
+            //    return new BoutResult.BoutMiniResult() { Message = value, Fighter1Hits = 0, Fighter2Hits = 0 };
         }
 
         private async Task<BoutResult> FightApiModelStat(string category, List<ApiModel.Stat> firstStats, List<ApiModel.Stat> secondStats)
         {
-            await Task.Delay(1000);
+            await Task.Delay(DELAY);
 
             var result = new BoutResult() { Category = category };
 
             result.Results.AddRange(FightSkills(firstStats, secondStats, true));
             result.Results.AddRange(FightSkills(secondStats, firstStats, false));
+
+            result = CalculateWinner(result);
 
             return result;
         }
@@ -137,17 +159,21 @@ namespace Battler
                 {
                     if (item1.name.Equals(item2.name))
                     {
-                        if (item1.count > item2.count)
-                        {
-                            if (fighter1First)
-                                result.Add(new BoutResult.BoutMiniResult() { Message = item1.name, Fighter1Hits = item1.count - item2.count, Fighter2Hits = 0 });
-                            else
-                                result.Add(new BoutResult.BoutMiniResult() { Message = item1.name, Fighter1Hits = 0, Fighter2Hits = item1.count - item2.count });
-                        }
-                        else if (item1.count == item2.count)
-                        {
-                            result.Add(new BoutResult.BoutMiniResult() { Message = item1.name, Fighter1Hits = 0, Fighter2Hits = 0 });
-                        }
+                        //TODO - CHANGE?
+                        if (fighter1First)
+                            result.Add(new BoutResult.BoutMiniResult() { Message = item1.name, Fighter1Hits = item1.count, Fighter2Hits = item2.count });
+
+                        //if (item1.count > item2.count)
+                        //{
+                        //    if (fighter1First)
+                        //        result.Add(new BoutResult.BoutMiniResult() { Message = item1.name, Fighter1Hits = item1.count - item2.count, Fighter2Hits = 0 });
+                        //    else
+                        //        result.Add(new BoutResult.BoutMiniResult() { Message = item1.name, Fighter1Hits = 0, Fighter2Hits = item1.count - item2.count });
+                        //}
+                        //else if (item1.count == item2.count)
+                        //{
+                        //    result.Add(new BoutResult.BoutMiniResult() { Message = item1.name, Fighter1Hits = 0, Fighter2Hits = 0 });
+                        //}
 
                         found = true;
                         break;
@@ -164,6 +190,30 @@ namespace Battler
             }
 
             return result;
+        }
+
+        private BoutResult CalculateWinner(BoutResult boutResult)
+        {
+            var Fighter1Count = 0;
+            var Fighter2Count = 0;
+            foreach (var item in boutResult.Results)
+            {
+                if (item.Fighter1Hits > item.Fighter2Hits)
+                    Fighter1Count += item.Fighter1Hits;
+                else if (item.Fighter2Hits > item.Fighter1Hits)
+                    Fighter2Count += item.Fighter2Hits;
+            }
+
+            if (Fighter1Count > Fighter2Count)
+                boutResult.Fighter1Won = true;
+            else if (Fighter2Count > Fighter1Count)
+                boutResult.Fighter2Won = true;
+            else
+            {
+                boutResult.Fighter1Won = true;
+            }
+
+            return boutResult;
         }
     }
 }

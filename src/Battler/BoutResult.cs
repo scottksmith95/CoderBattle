@@ -9,6 +9,8 @@ namespace Battler
     public class BoutResult
     {
         public string Category { get; set; }
+        public bool Fighter1Won { get; set; }
+        public bool Fighter2Won { get; set; }
         public List<BoutMiniResult> Results { get; set; }
 
         public BoutResult()

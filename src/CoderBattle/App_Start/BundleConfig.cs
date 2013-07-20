@@ -19,6 +19,8 @@ namespace CoderBattle
             bundles.Add(new StyleBundle("~/Content/css")
                 .Include("~/Content/bootstrap.css")
                 .Include("~/Content/bootstrap-responsive.css")
+                .Include("~/Content/font-awesome.css")
+                .Include("~/Content/animate.css")
                 .Include("~/Content/site.css"));
         }
     }
