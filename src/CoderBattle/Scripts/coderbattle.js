@@ -126,6 +126,7 @@ $(document).ready(function () {
 
     fightHubProxy.client.boutComplete = function (boutResult) {
         $('#results-wrapper').show();
+        $('#fight').hide();
         $('#fight-again').show();
         $('#fight-again').prop('disabled', false);
 
@@ -194,7 +195,8 @@ $(document).ready(function () {
 
     $('#fight').on('click', function () {
         fightHubProxy.server.start(getBrawler1(), getBrawler2());
-        $('#fight').hide();
+        $('#fight').prop('disabled', true);
+        $('#fight').text('PREPARING');
         return false;
     });
 
