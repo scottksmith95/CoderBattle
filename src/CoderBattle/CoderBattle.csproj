@@ -186,8 +186,7 @@
     <Content Include="Content\font\fontawesome-webfont.ttf" />
     <Content Include="Content\font\fontawesome-webfont.woff" />
     <Content Include="Content\font\FontAwesome.otf" />
-    <None Include="Properties\PublishProfiles\coderbattle - FTP.pubxml" />
-    <None Include="Properties\PublishProfiles\coderbattle - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\coderbattle1 - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-2.0.2.intellisense.js" />
     <Content Include="Scripts\angular-bootstrap-prettify.js" />
     <Content Include="Scripts\angular-bootstrap-prettify.min.js" />
